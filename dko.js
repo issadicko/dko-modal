@@ -1,6 +1,5 @@
 
 
-
 $(document).ready(function(){
 
     let els = $('.dko-modal');
@@ -23,7 +22,7 @@ $(document).ready(function(){
     $(document).on('click', '.dko-close', function(){
 
         let _closer = $(this);
-        _closer.parents('.dko-modal').first().removeClass('show');
+        closeModal(_closer.parents('.dko-modal').first());
 
     });
 
@@ -32,10 +31,18 @@ $(document).ready(function(){
         let modal = $(this);
 
         if(e.target === this){
-            modal.removeClass('show');
-            $('body').css({overflow: 'auto'});
+            closeModal(modal);
         }
 
     });
+
+    function closeModal(modal){
+        modal.find('.dko-content').removeClass('shown');
+        setTimeout(function (){
+            modal.removeClass('show');
+            $('body').css({overflow: 'auto'});
+        }, 200);
+
+    }
 
 });
