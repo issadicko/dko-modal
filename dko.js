@@ -2,15 +2,21 @@
 
 
 $(document).ready(function(){
+
+    let els = $('.dko-modal');
+    els.remove();
+
+    $('body').append(els);
     
     $(document).on('click','.dko-launcher', function(){
 
         let _action = $(this);
         let  _target = $(_action.data('dko'));
-        _target.addClass('show');
-
         $('body').css({overflow: 'hidden'});
-
+        _target.addClass('show');
+        setTimeout(function (){
+            _target.find('.dko-content').addClass('shown');
+        }, 1);
     });
 
 

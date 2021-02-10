@@ -7,15 +7,24 @@ body, html{
     margin: 0;
 }
 
+
+.relative{
+    position: relative;
+}
+
 .dko-modal{
-    display: none;
     padding-top: 40px;
-    position: absolute;
-    z-index: 9000;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3050;
+    display: none;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    outline: 0;
 }
 
 .dko-modal.show{
@@ -28,7 +37,13 @@ body, html{
     max-width: 900px;
     margin: auto;
     border-radius: 8px;
+    transform: translateY(-3000px);
+    transition: 200ms;
+}
 
+.dko-content.shown{
+    transition: 200ms;
+    transform: translateY(0);
 }
 
 .dko-body{
